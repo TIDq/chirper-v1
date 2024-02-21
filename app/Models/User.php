@@ -9,7 +9,16 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
-{
+{   
+    /**
+     * Get the chirps for the user.
+     * 
+     */
+    public function chirps()
+    {
+        return $this->hasMany(Chirp::class);
+    }
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
