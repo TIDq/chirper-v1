@@ -17,6 +17,7 @@ class ChirpController extends Controller
     {
         return Inertia::render('Chirps/Index', [
             
+            'chirps' => Chirp::with('user')->latest()->get(),
         ]);
     }
 
